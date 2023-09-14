@@ -21,8 +21,8 @@ class Movie(models.Model):
     Movie model : model for Movies
     """
     name = models.CharField(max_length=500)
-    imdb_score = models.FloatField()
-    popularity = models.FloatField()
+    year = models.IntegerField()
+    poster = models.CharField(max_length=500)
     director = models.CharField(max_length=500)
     actor = models.ManyToManyField(Actor)
 
