@@ -1,4 +1,5 @@
-# Dockerizing Django with Postgres, Gunicorn, and Nginx
+# Django Rest api demo OMDb
+Dockerizing Django with Postgres, Gunicorn, and Nginx
 
 ## How to use this project?
 
