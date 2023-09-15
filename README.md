@@ -11,6 +11,10 @@ Usually I use [https://doc.traefik.io/traefik/](Traefick) as a proxy for all my 
 gspread [https://docs.gspread.org/en/v5.10.0/](https://docs.gspread.org/en/v5.10.0/)
 djangorestframework [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/)
 
+I created a command which imports the necessary movies and which carries out the necessary processing for display.
+
+Once imported, the whole thing is stored in DB. This allows display without OMDB API dependencies
+
 ## How to use this project?
 
 ### Development
