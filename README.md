@@ -19,10 +19,11 @@ Uses the default Django development server.
 
     Run command to import movies informations from OMDb
     ```sh
+    $ docker-compose exec web python manage.py createsuperuser
     $ docker-compose exec web python manage.py populate_movies
     ```
 
-    Test it out at [http://localhost:8000](http://localhost:8000)
+    Test it out at [http://localhost:8000/apis/v1/](http://localhost:8000/apis/v1/)
 
 ### Production
 
