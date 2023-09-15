@@ -54,12 +54,13 @@ class Command(BaseCommand):
                 k['year'] = movie.get('Year')
                 k['poster'] = movie.get('Poster')
                 k['director'] = movie.get('Director')
+                
                 actors_list = movie.get('Actors').split(", ")
                 k['withPaulWalker'] = False
-                for name in actors_list:
-                    #check if Paul Walker is in casting
-                    if name == "Paul Walker":
-                        k['withPaulWalker'] = True
+                
+                if "Paul Walker" in actors_list:
+                    k['withPaulWalker'] = True
+
                 movie, created = Movie.objects.get_or_create(**k)
 
                 for name in actors_list:
