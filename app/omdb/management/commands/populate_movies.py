@@ -19,7 +19,48 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         apiKey = "98b330ef"
+        star_wars_actors = [
+            "Mark Hamill",
+            "Harrison Ford",
+            "Carrie Fisher",
+            "Alec Guinness",
+            "Ewan McGregor",
+            "Natalie Portman",
+            "Hayden Christensen",
+            "Liam Neeson",
+            "Samuel L. Jackson",
+            "Anthony Daniels",
+            "Kenny Baker",
+            "Peter Mayhew",
+            "James Earl Jones",
+            "David Prowse",
+            "Billy Dee Williams",
+            "Frank Oz",
+            "Ian McDiarmid",
+            "Christopher Lee",
+            "Adam Driver",
+            "Daisy Ridley",
+            "John Boyega",
+            "Oscar Isaac",
+            "Gwendoline Christie",
+            "Domhnall Gleeson",
+            "Felicity Jones",
+            "Diego Luna",
+            "Forest Whitaker",
+            "Donnie Yen",
+            "Ben Mendelsohn",
+            "Alan Tudyk",
+            "Kelly Marie Tran",
+            "Laura Dern",
+            "Benicio Del Toro",
+            "Lupita Nyong'o",
+            "Warwick Davis",
+            "Billie Lourd"
+        ]
         movieslist = ["Pirates of the Caribbean", "Fast & Furious", "Star-Wars"]
+        
+        
+        
         for movieToFind in movieslist:
             print(movieToFind)
 
@@ -58,8 +99,18 @@ class Command(BaseCommand):
                 actors_list = movie.get('Actors').split(", ")
                 k['withPaulWalker'] = False
                 
+                # check if actor Paul Walker play in this movie
                 if "Paul Walker" in actors_list:
                     k['withPaulWalker'] = True
+
+                # find star-war actor in this movie
+                actorsCommonStarWars = ""
+                for item in star_wars_actors:
+                    # Check if the element is also in list2
+                    if item in actors_list:
+                        actorsCommonStarWars=actorsCommonStarWars+item+", "
+                
+                k['actorsCommonStarWars'] = actorsCommonStarWars
 
                 movie, created = Movie.objects.get_or_create(**k)
 
