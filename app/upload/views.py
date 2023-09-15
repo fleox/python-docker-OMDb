@@ -1,9 +1,14 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from django.shortcuts import render
+from omdb import models
 
 
 def spreadsheet_upload(request):
+
+    context = {}
+    movies = models.Movie.objects.filter(name__contains='Pirates')
+    context['movies'] = movies
 
     credentials = {
         "type": "service_account",
@@ -20,11 +25,15 @@ def spreadsheet_upload(request):
 
     gc = gspread.service_account_from_dict(credentials)
 
-    sh = gc.open("movies")
-    sh.sheet1.update('A1', [[1, 2, 3], [3, 4]])
-    sh.sheet1.update('B42', "it's down there somewhere, let me take another look.")
+    data_to_update = [
+        ["name", "year", "poster", "director", "producedBefore2015", "withPaulWalker", "actorsCommonStarWars"],
+    ]
 
-    print(sh.sheet1.get('A1'))
+    for movie in movies:
+        t_movie = [movie.name, movie.year, movie.poster, movie.director, movie.producedBefore2015, movie.withPaulWalker, movie.actorsCommonStarWars] 
+        data_to_update.append(t_movie) 
+
+    sh = gc.open("movies")
+    sh.sheet1.update('A1', data_to_update)
     
-    
-    return render(request, "upload.html")
+    return render(request, "upload.html", context)
