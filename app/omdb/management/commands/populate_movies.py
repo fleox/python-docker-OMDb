@@ -7,6 +7,7 @@ from omdbapi.movie_search import GetMovie
 import requests
 from pprint import PrettyPrinter
 pp = PrettyPrinter()
+import sys
 
 from ...models import Movie, Actor
 
@@ -44,12 +45,21 @@ class Command(BaseCommand):
                 }
                 movie = requests.get(data_URL,params=params).json()
                 #pp.pprint(movie)
+
+                k['producedBefore2015'] = False
+                if int(movie.get('Year')) < 2015:
+                    k['producedBefore2015'] = True
                 
                 k['name'] = movie.get('Title')
                 k['year'] = movie.get('Year')
                 k['poster'] = movie.get('Poster')
                 k['director'] = movie.get('Director')
                 actors_list = movie.get('Actors').split(", ")
+                k['withPaulWalker'] = False
+                for name in actors_list:
+                    #check if Paul Walker is in casting
+                    if name == "Paul Walker":
+                        k['withPaulWalker'] = True
                 movie, created = Movie.objects.get_or_create(**k)
 
                 for name in actors_list:
