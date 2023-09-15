@@ -3,6 +3,7 @@ Dockerizing Django with Postgres, Gunicorn, and Nginx
 
 ## external libraries :
 gspread [https://docs.gspread.org/en/v5.10.0/](https://docs.gspread.org/en/v5.10.0/)
+djangorestframework [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/)
 
 ## How to use this project?
 
@@ -28,6 +29,8 @@ Uses the default Django development server.
     To see movies Fast & Furious : [http://localhost:8000/apis/v1/films/](http://localhost:8000/apis/v1/films/)
 
     To see movies Pirates des caraibes : [http://localhost:8000/apis/v1/films/pirates_caraibes/](http://localhost:8000/apis/v1/films/pirates_caraibes/)
+
+    To upload spreadsheet with "Pirates des caraïbes" movies list : [http://localhost:8000/spreadsheet/](http://localhost:8000/spreadsheet/)
 
 ### Production
 

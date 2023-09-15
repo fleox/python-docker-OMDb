@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 
 
-def image_upload(request):
+def spreadsheet_upload(request):
     if request.method == "POST" and request.FILES["image_file"]:
         image_file = request.FILES["image_file"]
         fs = FileSystemStorage()
