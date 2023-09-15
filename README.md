@@ -25,6 +25,8 @@ Uses the default Django development server.
 
     Test it out at [http://localhost:8000/apis/v1/](http://localhost:8000/apis/v1/)
 
+    To see movies Fast & Furious : [http://localhost:8000/apis/v1/films/](http://localhost:8000/apis/v1/films/)
+
 ### Production
 
 Uses gunicorn + nginx.
