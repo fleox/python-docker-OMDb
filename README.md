@@ -2,7 +2,7 @@
 Dockerizing Django with Postgres, Gunicorn, and Nginx
 
 ## external libraries :
-...
+gspread [https://docs.gspread.org/en/v5.10.0/](https://docs.gspread.org/en/v5.10.0/)
 
 ## How to use this project?
 
