@@ -2,7 +2,7 @@
 Dockerizing Django with Postgres, Gunicorn, and Nginx
 
 ## external libraries :
-omdbapi [https://pypi.org/project/omdbapi/](omdbapi)
+...
 
 ## How to use this project?
 
