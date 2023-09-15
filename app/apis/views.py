@@ -10,5 +10,10 @@ class ListMovies(generics.ListCreateAPIView):
 
 class ListMoviesFastFurious(generics.ListCreateAPIView):
     allowed_methods = ['GET']
-    queryset = models.Movie.objects.all()
+    queryset = models.Movie.objects.filter(name__contains='Fast')
+    serializer_class = MovieSerializer
+
+class ListMoviesPiratesCaraibes(generics.ListCreateAPIView):
+    allowed_methods = ['GET']
+    queryset = models.Movie.objects.filter(name__contains='Pirates')
     serializer_class = MovieSerializer

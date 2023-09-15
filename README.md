@@ -27,6 +27,8 @@ Uses the default Django development server.
 
     To see movies Fast & Furious : [http://localhost:8000/apis/v1/films/](http://localhost:8000/apis/v1/films/)
 
+    To see movies Pirates des caraibes : [http://localhost:8000/apis/v1/films/pirates_caraibes/](http://localhost:8000/apis/v1/films/pirates_caraibes/)
+
 ### Production
 
 Uses gunicorn + nginx.
