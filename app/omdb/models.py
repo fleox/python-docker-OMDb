@@ -24,6 +24,9 @@ class Movie(models.Model):
     year = models.IntegerField()
     poster = models.CharField(max_length=500)
     director = models.CharField(max_length=500)
+    producedBefore2015 = models.BooleanField(default=False)
+    withPaulWalker = models.BooleanField(default=False)
+    actorsCommonStarWars = models.CharField(max_length=500, default="")
     actor = models.ManyToManyField(Actor)
 
     class Meta:
