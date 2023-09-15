@@ -4,3 +4,5 @@ psycopg2-binary==2.9.6
 djangorestframework
 omdbapi
 gspread
+google-api-python-client
+oauth2client
